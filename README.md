@@ -17,7 +17,7 @@ This package provides a Python library that will parse an input text and produce
 ## Install
 
 ```bash
-pip install --user enclosed
+pip install enclosed
 ```
 
 ## How to use
