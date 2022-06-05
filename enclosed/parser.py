@@ -6,13 +6,17 @@ class TokenType(Enum):
     NOT_ENCLOSED = 2
 
 
+def is_enclosed(token):
+    return token[0] == TokenType.ENCLOSED
+
+
 class Parser:
     def __init__(self, open_symbol="{", close_symbol="}", allow_escape=True):
         self.open_symbol = open_symbol
         self.close_symbol = close_symbol
         self.allow_escape = allow_escape
 
-    def tokenize(self, text):
+    def tokenize(self, text):  # NOQA: C901
         resulting_tokens = []
         last_char = None
         token = ""
