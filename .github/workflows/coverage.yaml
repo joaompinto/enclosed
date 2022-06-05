@@ -1,6 +1,6 @@
 name: Run and publish coverage
-on:
-  push:
+on: push
+  # push:
     # tags:
     #   - 'v*' # Push events to matching v*, i.e. v1.0, v2.1.3
 
