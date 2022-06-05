@@ -1,9 +1,9 @@
-from .parser import Parser, TokenType
+from enclosed.parser import Parser, TokenType
 
 success_test_map = {
     "{}": [],
-    "\{": [(TokenType.NOT_ENCLOSED, 1, "{")],  # NOQA: W605 invalid escape sequence
-    "\{\}": [(TokenType.NOT_ENCLOSED, 2, "{}")],  # NOQA: W605 invalid escape sequence
+    r"\{": [(TokenType.NOT_ENCLOSED, 1, "{")],
+    r"\{\}": [(TokenType.NOT_ENCLOSED, 2, "{}")],
     "abc": [(TokenType.NOT_ENCLOSED, 0, "abc")],
     "abc{xp}": [(TokenType.NOT_ENCLOSED, 0, "abc"), (TokenType.ENCLOSED, 4, "xp")],
     "abc{{xp}}": [(TokenType.NOT_ENCLOSED, 0, "abc"), (TokenType.ENCLOSED, 4, "{xp}")],

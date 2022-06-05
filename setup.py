@@ -1,18 +1,17 @@
-from setuptools import setup
-import sys
-import os
 import io
+from pathlib import Path
+from setuptools import setup
 
-assert sys.version_info >= (3, 6, 0), "requires Python 3.6+"
-from pathlib import Path  # noqa E402
+SCRIPT_DIR = Path(__file__).parent
 
-CURRENT_DIR = Path(__file__).parent
+
+scm_version_options = {"write_to": "enclosed/version.py"}
 
 
 def setup_package():
 
     # Get readme
-    readme_path = os.path.join(CURRENT_DIR, "README.md")
+    readme_path = Path(SCRIPT_DIR, "README.md")
     with io.open(readme_path, encoding="utf8") as f:
         readme = f.read()
 
@@ -21,13 +20,10 @@ def setup_package():
         requirements = f.read()
 
     setup(
+        use_scm_version=scm_version_options,
         long_description=readme,
         long_description_content_type="text/markdown",
         install_requires=[x for x in requirements.splitlines() if x],
-        package_data={
-            # If any package contains *.json files, include them:
-            "": ["*.json"]
-        },
     )
 
 

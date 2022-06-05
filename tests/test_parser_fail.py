@@ -1,4 +1,5 @@
-from .parser import Parser
+import pytest
+from enclosed.parser import Parser
 
 # Unbalanced open/close cases
 fail_test_cases = ["{", "}", "{{}", "{}}"]
@@ -17,9 +18,5 @@ def pytest_generate_tests(metafunc):
 
 def test_parse(text):
     parser = Parser()
-    try:
+    with pytest.raises(ValueError):
         parser.tokenize(text)
-    except ValueError:
-        pass
-    else:
-        assert False

@@ -20,7 +20,6 @@ parts/
 sdist/
 var/
 wheels/
-pip-wheel-metadata/
 share/python-wheels/
 *.egg-info/
 .installed.cfg
@@ -50,6 +49,7 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
+cover/
 
 # Translations
 *.mo
@@ -72,6 +72,7 @@ instance/
 docs/_build/
 
 # PyBuilder
+.pybuilder/
 target/
 
 # Jupyter Notebook
@@ -133,6 +134,7 @@ dmypy.json
 # pytype static type analyzer
 .pytype/
 
-.vscode/
+# Cython debug symbols
+cython_debug/
 
-manual/yamlfu.github.io/
+enclosed/version.py
